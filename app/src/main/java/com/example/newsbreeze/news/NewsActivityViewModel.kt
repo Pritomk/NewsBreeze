@@ -8,13 +8,16 @@ import androidx.lifecycle.viewModelScope
 import com.example.newsbreeze.repository.NewsRepository
 import com.example.newsbreeze.room.News
 import com.example.newsbreeze.room.NewsDatabase
+import com.example.newsbreeze.room.NewsItem
+import com.example.newsbreeze.room.NewsItemDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class NewsActivityViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val dao = NewsDatabase.getDatabase(application).newsDao()
-    private val repository = NewsRepository(dao)
+    private val newsDao = NewsDatabase.getDatabase(application).newsDao()
+    private val newsItemDao = NewsItemDatabase.getDatabase(application).newsItemDao()
+    private val repository = NewsRepository(newsDao,newsItemDao)
 
     fun insertNews(news: News) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -30,6 +33,10 @@ class NewsActivityViewModel(application: Application) : AndroidViewModel(applica
 
     fun getNewsById(newsId: Long) : LiveData<List<News>> {
         return repository.getNewsById(newsId)
+    }
+
+    fun getNewsItemById(newsId: Long) : LiveData<List<NewsItem>> {
+        return repository.getNewsItemById(newsId)
     }
 
 }

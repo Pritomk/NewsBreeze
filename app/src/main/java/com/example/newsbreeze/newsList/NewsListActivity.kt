@@ -23,7 +23,6 @@ import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class NewsListActivity : AppCompatActivity(), OnClickedListener {
 
@@ -63,19 +62,19 @@ class NewsListActivity : AppCompatActivity(), OnClickedListener {
         adapter = NewsListAdapter(this)
         recyclerView.adapter = adapter
         newsListActivityViewModel.breakingNewsItemList.observe(this) { newsList ->
-            adapter.updateList(newsList as ArrayList<NewsItem>)
+            for (newsItem in newsList) {
+                newsListActivityViewModel.insertNewsItem(newsItem)
+            }
+        }
+
+        newsListActivityViewModel.readNewsItem.observe(this) {
+            adapter.updateList(it)
         }
     }
 
     override fun readButtonClicked(newsItem: NewsItem) {
         val newsIntent = Intent(this, NewsActivity::class.java)
-        newsIntent.putExtra("title", newsItem.title)
-        newsIntent.putExtra("author", newsItem.author)
-        newsIntent.putExtra("newsPicUrl", newsItem.newsPicUrl)
-        newsIntent.putExtra("description", newsItem.description)
-        newsIntent.putExtra("content", newsItem.content)
-        newsIntent.putExtra("date", newsItem.date)
-        newsIntent.putExtra("flagSave", newsItem.flagSave)
+        newsIntent.putExtra("newsId", newsItem.id)
         startActivity(newsIntent)
     }
 

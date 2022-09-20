@@ -1,13 +1,8 @@
 package com.example.newsbreeze.dao
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import coil.ImageLoader
-import coil.request.ImageRequest
-import coil.request.SuccessResult
 import com.android.volley.AuthFailureError
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.toolbox.JsonObjectRequest
@@ -36,6 +31,7 @@ class OnlineDao {
                 for (i in 0..jsonArray.length()) {
                     val jsonObject = jsonArray[i] as JSONObject
                     val newsItem = NewsItem(
+                        i,
                         jsonObject.getString("title"),
                         jsonObject.getString("author"),
                         jsonObject.getString("urlToImage"),

@@ -16,5 +16,5 @@ data class News(
     val content: String,
     val date: String,
     val time: String,
-    val flagSave: Boolean
+    var flagSave: Boolean
 )

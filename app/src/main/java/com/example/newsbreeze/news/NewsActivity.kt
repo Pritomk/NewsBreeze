@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import coil.ImageLoader
@@ -26,8 +27,8 @@ class NewsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewsBinding
     private lateinit var newsActivityViewModel: NewsActivityViewModel
     private var newsId by Delegates.notNull<Long>()
-    private lateinit var title: String
-    private lateinit var date: String
+    private var title: String = ""
+    private var date: String = ""
     private lateinit var author: String
     private lateinit var content: String
     private lateinit var description: String
@@ -74,6 +75,9 @@ class NewsActivity : AppCompatActivity() {
         newsActivityViewModel.getNewsById(newsId).observe(this) { newsList ->
             if (newsList.isNotEmpty()) {
                 val news = newsList[0]
+                title = news.title
+                date = news.date
+                flagSave = news.flagSave
                 binding.newsTitle.text = news.title
                 binding.newsAuthorName.text = news.author
                 binding.newsContent.text = news.content
@@ -86,24 +90,41 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun setDetailFromNewsList() {
-        newsPicUrl = intent.getStringExtra("newsPicUrl").toString()
-        title = intent.getStringExtra("title").toString()
-        author = intent.getStringExtra("author").toString()
-        content = intent.getStringExtra("content").toString()
-        description = intent.getStringExtra("description").toString()
-        date = intent.getStringExtra("date").toString()
-        if (newsPicUrl.isNotEmpty()) {
-            Glide.with(this).load(newsPicUrl).centerCrop().into(binding.newsImg)
+//        newsPicUrl = intent.getStringExtra("newsPicUrl").toString()
+//        title = intent.getStringExtra("title").toString()
+//        author = intent.getStringExtra("author").toString()
+//        content = intent.getStringExtra("content").toString()
+//        description = intent.getStringExtra("description").toString()
+//        date = intent.getStringExtra("date").toString()
+//        if (newsPicUrl.isNotEmpty()) {
+//            Glide.with(this).load(newsPicUrl).centerCrop().into(binding.newsImg)
+//        }
+//        binding.newsTitle.text = title
+//        binding.newsAuthorName.text = author
+//        binding.newsContent.text = content
+//        binding.newsDate.text = date
+//        binding.newsContent.text = content
+//        binding.newsDescription.text = description
+        newsActivityViewModel.getNewsItemById(newsId).observe(this) { newsList ->
+            if (newsList.isNotEmpty()) {
+                val news = newsList[0]
+                title = news.title
+                date = news.date
+                flagSave = news.flagSave
+                binding.newsTitle.text = news.title
+                binding.newsAuthorName.text = news.author
+                binding.newsContent.text = news.content
+                binding.newsDescription.text = news.description
+                binding.newsDate.text = news.date
+                Glide.with(this).load(news.newsPicUrl).centerCrop().into(binding.newsImg)
+            }
+            updateFlagSave()
         }
-        binding.newsTitle.text = title
-        binding.newsAuthorName.text = author
-        binding.newsContent.text = content
-        binding.newsDate.text = date
-        binding.newsContent.text = content
-        binding.newsDescription.text = description
+
     }
 
     private fun deleteNewsFunc() {
+        Log.d("title","$title $date")
         newsActivityViewModel.deleteNews(title, date)
         flagSave = false
         updateFlagSave()

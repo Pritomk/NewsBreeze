@@ -71,7 +71,7 @@ class NewsListAdapter(private val listener: OnClickedListener) : RecyclerView.Ad
         return newsItemList.size
     }
 
-    fun updateList(newList: ArrayList<NewsItem>) {
+    fun updateList(newList: List<NewsItem>) {
         newsItemList.clear()
         newsItemList.addAll(newList)
 

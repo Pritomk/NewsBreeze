@@ -1,6 +1,13 @@
 package com.example.newsbreeze.room
 
-data class NewsItem (
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "news_item_table", indices = [Index(value = ["title","description"], unique = true)])
+data class NewsItem(
+    @PrimaryKey
+    val id: Int,
     val title: String,
     val author: String,
     val newsPicUrl: String,
