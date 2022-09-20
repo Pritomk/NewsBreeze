@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newsList.NewsListActivity"
+    android:padding="20sp"
+    android:background="@color/cream_white">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="NewsBreeze"
+        android:textColor="@color/black"
+        android:textSize="32sp" />
+
+    <ImageView
+        android:id="@+id/news_list_saved_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/save_bg"
+        android:padding="12dp"
+        android:src="@drawable/ic_unsave" />
+
+    <SearchView
+        android:id="@+id/news_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rect"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:iconifiedByDefault="false"
+        android:queryHint="Place or location"
+        android:queryBackground="@android:color/transparent"/>
+
+    <ImageView
+        android:id="@+id/filter_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="44dp"
+        android:src="@drawable/ic_setting" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/news_list_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/filter_btn"
+        android:layout_marginTop="60dp"
+        tools:listitem="@layout/news_item" />
+
+</RelativeLayout>

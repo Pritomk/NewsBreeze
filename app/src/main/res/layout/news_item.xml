@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="16dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:background="@color/grey3"/>
+
+    <ImageView
+        android:id="@+id/news_item_img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/news_img_bg"
+        android:clipToOutline="true"
+        android:src="@color/purple_200"
+        android:scaleType="matrix"/>
+
+    <ImageView
+        android:id="@+id/news_item_flag_save"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_unsave" />
+
+    <TextView
+        android:id="@+id/news_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news_item_img"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/news_item_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news_item_title"
+        android:textColor="@color/black"
+        android:maxLines="3"
+        android:textSize="24sp"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/news_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news_item_desc"
+        android:layout_alignParentStart="true"
+        android:maxLines="3"
+        android:textColor="@color/grey3"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="17-09-22" />
+
+    <TextView
+        android:id="@+id/news_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news_item_desc"
+        android:layout_alignParentEnd="true"
+        android:maxLines="1"
+        android:text="09:25 am"
+        android:textColor="@color/grey2"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/news_item_date"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/news_item_read_btn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Read"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:background="@drawable/btn_click"
+            android:layout_marginEnd="12dp"/>
+
+        <TextView
+            android:id="@+id/news_item_save_btn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:background="@drawable/btn_click"
+            android:layout_marginStart="12dp"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

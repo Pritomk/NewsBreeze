@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/btn_click.xml" value="0.157" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/ic_unsave.xml" value="0.202" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/layout_curve_bg.xml" value="0.1975" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/layout_save_list_bg.xml" value="0.1975" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/login_button_bg.xml" value="0.12" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/news_img_bg.xml" value="0.154" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/rect.xml" value="0.202" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/register_button_bg.xml" value="0.152" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/save_bg.xml" value="0.202" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/drawable/unsave_bg.xml" value="0.157" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/layout/activity_main.xml" value="0.16321070234113713" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/layout/activity_news.xml" value="0.136" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/layout/activity_news_list.xml" value="0.22962962962962963" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/layout/activity_save_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/layout/news_item.xml" value="0.264" />
+        <entry key="..\:/Users/pritom/OneDrive/Desktop/NewsBreeze/app/src/main/res/layout/save_list_item_layout.xml" value="0.4" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
