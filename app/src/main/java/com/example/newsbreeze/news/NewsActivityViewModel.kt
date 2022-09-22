@@ -15,26 +15,35 @@ import kotlinx.coroutines.launch
 
 class NewsActivityViewModel(application: Application) : AndroidViewModel(application) {
 
+    //Initialize the news database news dao
     private val newsDao = NewsDatabase.getDatabase(application).newsDao()
+    //Initialize the news database news dao
     private val newsItemDao = NewsItemDatabase.getDatabase(application).newsItemDao()
+    //Initialize a repository variable with newsdao and newsitemdao
     private val repository = NewsRepository(newsDao,newsItemDao)
 
+    //Insert news in news table function
     fun insertNews(news: News) {
+        //Call a viewmodelscope coroutine to call suspend function
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertNews(news)
         }
     }
 
+    //Delete news from news table function
     fun deleteNews(title: String, date: String) {
+        //Call a viewmodelscope coroutine to call suspend function
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteNews(title,date)
         }
     }
 
+    //Get the news by newsid from news table
     fun getNewsById(newsId: Long) : LiveData<List<News>> {
         return repository.getNewsById(newsId)
     }
 
+    //Get the news item by newsid from news item table
     fun getNewsItemById(newsId: Long) : LiveData<List<NewsItem>> {
         return repository.getNewsItemById(newsId)
     }

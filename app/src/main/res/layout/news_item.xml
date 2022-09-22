@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_item_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/news_item_img"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="8dp"
         android:maxLines="2"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -50,8 +51,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/news_item_title"
-        android:textColor="@color/black"
+        android:lineSpacingExtra="4dp"
         android:maxLines="3"
+        android:textColor="@color/black"
         android:textSize="24sp"
         tools:text="@tools:sample/lorem/random" />
 
@@ -62,7 +64,7 @@
         android:layout_below="@id/news_item_desc"
         android:layout_alignParentStart="true"
         android:maxLines="3"
-        android:textColor="@color/grey3"
+        android:textColor="@color/grey2"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:text="17-09-22" />

@@ -29,32 +29,42 @@ class SaveNewsActivity : AppCompatActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //        Initialize the binding
         binding = ActivitySaveNewsBinding.inflate(layoutInflater)
+        //link the xml file with the backend file
         setContentView(binding.root)
 
+        //Initialize the view model for fetch the data
         saveNewsActivityViewModel = ViewModelProvider(this)[SaveNewsActivityViewModel::class.java]
 
+        //Initialize the recyclerview
         saveListRecylerView = binding.saveListRecyclerview
+        //Initialize adapter
         adapter = SaveListAdapter(this)
+        //Set layout manager of recycler view
         saveListRecylerView.layoutManager = LinearLayoutManager(this)
+        //set adapter of recyclerview
         saveListRecylerView.adapter = adapter
 
 
         setTodayRecyclerFunc()
 
+        //Call see all function
         binding.saveListSeeAllBtn.setOnClickListener {
             seeAllNewsFunc()
         }
-
+        //Back method
         binding.newsSaveBackBtn.setOnClickListener {
             onBackPressed()
         }
 
+        //Set the search listener into search view
         binding.saveNewsSearchView.setOnQueryTextListener(searchListener)
     }
 
     private fun seeAllNewsFunc() {
         binding.todayText.text = "All News"
+        //Get all the news from local database with see all
         saveNewsActivityViewModel.readAllNews.observe(this) {
             adapter.updateList(it as ArrayList<News>)
         }
@@ -62,13 +72,13 @@ class SaveNewsActivity : AppCompatActivity(), OnClickListener {
 
     private fun setTodayRecyclerFunc() {
         val todayDate = getTodayDate()
-        Log.d("tag","${getTodayDate()}")
+        //Get today news list
         saveNewsActivityViewModel.todayNews(todayDate).observe(this) {
-            Log.d("tag","$it")
             adapter.updateList(it as ArrayList<News>)
         }
     }
 
+    //Start news activity with news id
     override fun onItemClicked(news: News) {
         val newsIntent = Intent(this, NewsActivity::class.java)
         newsIntent.putExtra("newsId", news.newsId)
@@ -82,7 +92,7 @@ class SaveNewsActivity : AppCompatActivity(), OnClickListener {
         return outputStream.toByteArray()
     }
 
-
+    //Function to get the current date as 23-09-2022
     private fun getTodayDate() : String {
         val c: Date = Calendar.getInstance().time
         val df = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
@@ -90,6 +100,7 @@ class SaveNewsActivity : AppCompatActivity(), OnClickListener {
         return formattedDate
     }
 
+    //Search listener for search view
     private val searchListener: SearchView.OnQueryTextListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(p0: String?): Boolean {
             adapter.filter.filter(p0)
@@ -97,7 +108,7 @@ class SaveNewsActivity : AppCompatActivity(), OnClickListener {
         }
 
         override fun onQueryTextChange(p0: String?): Boolean {
-            Log.d("tag","$p0")
+            //Call adapter filter function with changed string
             adapter.filter.filter(p0)
             return false
         }

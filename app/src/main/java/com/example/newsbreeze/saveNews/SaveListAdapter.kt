@@ -5,10 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.animation.AnimationUtils
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newsbreeze.R
@@ -17,11 +15,14 @@ import com.example.newsbreeze.room.News
 import com.example.newsbreeze.room.NewsItem
 
 class SaveListAdapter(private val listener: OnClickListener) : RecyclerView.Adapter<SaveListViewHolder>(),Filterable {
+    //News item list for previous value
     private val newsList = ArrayList<News>()
+    //News item list for updated value
     private val newsAllList = ArrayList<News>()
     private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SaveListViewHolder {
+        //Call view with save news item layout
         val view = LayoutInflater.from(parent.context).inflate(R.layout.save_list_item_layout,parent, false)
         val viewHolder = SaveListViewHolder(view)
         context = parent.context
@@ -32,10 +33,14 @@ class SaveListAdapter(private val listener: OnClickListener) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: SaveListViewHolder, position: Int) {
+        // Set the value of recycler view items
         val news = newsList[position]
         Glide.with(context).load(news.newsPic).centerCrop().into(holder.listImg)
         holder.title.text = news.title
         holder.date.text = news.date
+        // Set the animation of recycler view
+        holder.saveListItemContainer.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.anim)
     }
 
     override fun getItemCount(): Int {
@@ -52,6 +57,7 @@ class SaveListAdapter(private val listener: OnClickListener) : RecyclerView.Adap
         notifyDataSetChanged()
     }
 
+    //Function for update the recycler view list and notify the adapter
     override fun getFilter(): Filter {
         return filterMethod
     }
@@ -97,6 +103,7 @@ class SaveListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val hashTag: TextView = itemView.findViewById(R.id.save_list_hash_tag)
     val title: TextView = itemView.findViewById(R.id.save_list_title)
     val date: TextView = itemView.findViewById(R.id.save_list_date)
+    val saveListItemContainer: RelativeLayout = itemView.findViewById(R.id.save_list_item_container)
 }
 
 interface OnClickListener {

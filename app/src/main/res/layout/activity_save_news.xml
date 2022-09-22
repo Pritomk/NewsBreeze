@@ -45,35 +45,25 @@
         android:queryBackground="@android:color/transparent"
         android:queryHint="Search" />
 
-    <ImageView
-        android:id="@+id/filter_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/news_save_back_btn"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="44dp"
-        android:src="@drawable/ic_setting" />
-
 
     <TextView
         android:id="@+id/today_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/filter_btn"
+        android:layout_below="@id/save_news_search_view"
         android:layout_marginStart="20sp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="4dp"
+        android:text="Today"
         android:textColor="@color/black"
-        android:textSize="28sp"
-        android:text="Today"/>
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/save_list_see_all_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/filter_btn"
+        android:layout_below="@id/save_news_search_view"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="20sp"
         android:text="See all.."
         android:textColor="@color/light_green"

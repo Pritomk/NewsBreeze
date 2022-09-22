@@ -17,7 +17,7 @@
             android:id="@+id/news_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/purple_200"
+            android:background="@color/white"
             android:scaleType="matrix" />
 
         <TextView
@@ -27,13 +27,14 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="24sp"
             android:layout_marginEnd="24sp"
+            android:layout_marginBottom="40dp"
             android:gravity="start"
+            android:lineSpacingExtra="8dp"
             android:maxLines="2"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold"
-            tools:text="@tools:sample/lorem/random"
-            android:layout_marginBottom="40dp"/>
+            tools:text="@tools:sample/lorem/random" />
 
             <TextView
                 android:id="@+id/news_date"
@@ -71,32 +72,6 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/ic_unsave" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/news_title"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="24dp"-->
-<!--        android:layout_marginTop="240sp"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        android:maxLines="2"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="30sp"-->
-<!--        android:textStyle="bold"-->
-<!--        tools:text="@tools:sample/lorem/random" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/news_date"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_above="@id/news_title"-->
-<!--        android:maxLines="1"-->
-<!--        android:textColor="@color/grey3"-->
-<!--        android:textSize="22sp"-->
-<!--        android:textStyle="bold"-->
-<!--        tools:text="17-09-22"-->
-<!--        android:layout_marginBottom="-240dp"-->
-<!--        android:layout_marginStart="24dp"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -177,14 +152,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
-                    tools:text="@tools:sample/lorem/random" />
+                    tools:text="@tools:sample/lorem/random"
+                    android:lineSpacingExtra="6dp"/>
 
                 <TextView
                     android:id="@+id/news_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
-                    tools:text="@tools:sample/lorem/random" />
+                    tools:text="@tools:sample/lorem/random"
+                    android:lineSpacingExtra="6dp"/>
 
             </LinearLayout>
 
