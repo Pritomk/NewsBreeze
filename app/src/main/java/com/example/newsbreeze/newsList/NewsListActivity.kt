@@ -41,7 +41,7 @@ class NewsListActivity : AppCompatActivity(), OnClickedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //        Initialize the binding
+        //Initialize the binding
         binding = ActivityNewsListBinding.inflate(layoutInflater)
         //link the xml file with the backend file
         setContentView(binding.root)
