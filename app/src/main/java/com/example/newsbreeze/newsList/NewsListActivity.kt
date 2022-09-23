@@ -104,6 +104,7 @@ class NewsListActivity : AppCompatActivity(), OnClickedListener {
     override fun readButtonClicked(newsItem: NewsItem) {
         val newsIntent = Intent(this, NewsActivity::class.java)
         newsIntent.putExtra("newsId", newsItem.id)
+        newsIntent.putExtra("newsList", true)
         startActivity(newsIntent)
     }
 

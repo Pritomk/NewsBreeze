@@ -84,10 +84,15 @@ class NewsActivity : AppCompatActivity() {
     private fun getAndSetNewsData() {
         //Call intent to get the news id from SaveListActivity and NewsListActivity
         newsId = intent.getLongExtra("newsId", 0)
+        //Get the boolean value indicate that news id coming from where
+        val newsListActivity = intent.getBooleanExtra("newsList", false)
 
         /*Call set details according to newsId but at a time one of the function will use*/
-        setDetailsFromSaveList()
-        setDetailFromNewsList()
+        if (newsListActivity){
+            setDetailFromNewsList()
+        } else {
+            setDetailsFromSaveList()
+        }
 
         /*Set the listener to after clicking on flag save news will delete from the database*/
         binding.newsFlagSave.setOnClickListener {

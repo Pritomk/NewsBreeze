@@ -32,10 +32,16 @@ class NewsListAdapter(private val listener: OnClickedListener) : RecyclerView.Ad
             listener.readButtonClicked(newsItemList[viewHolder.position])
         }
 
+        view.setOnClickListener {
+            listener.readButtonClicked(newsItemList[viewHolder.position])
+        }
+
         //Call interface save button method by news item
         viewHolder.saveBtn.setOnClickListener {
             listener.saveButtonClicked(newsItemList[viewHolder.position], viewHolder.position)
         }
+
+
 
         //Set the flag image
         viewHolder.flagImg.setOnClickListener {
