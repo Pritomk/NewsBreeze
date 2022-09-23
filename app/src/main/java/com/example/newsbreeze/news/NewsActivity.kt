@@ -157,6 +157,7 @@ class NewsActivity : AppCompatActivity() {
 
     }
 
+    //Delete function to delete the news with title and date
     private fun deleteNewsFunc() {
         //Delete the news according to the title and date
         newsActivityViewModel.deleteNews(title, date)
